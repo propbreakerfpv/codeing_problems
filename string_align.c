@@ -64,38 +64,6 @@
 // free(ints);
 
 void string_align(char** array, int array_len, char ch) {
-    int *map = (int*)malloc(sizeof(int) * array_len);
-
-    int max = 0;
-    for (int i = 0; i < array_len; ++i) {
-        map[i] = 0;
-        int found = 0;
-        for(int j = 0; array[i][j] != 0; ++j) {
-            if (array[i][j] != ch) {
-                map[i] ++;
-            } else {
-                if (j > max) {
-                    max = j;
-                }
-                found = 1;
-                break;
-            }
-        }
-        if (! found) {
-            map[i] = -1;
-        }
-    }
-    for (int i = 0; i < array_len; ++i) {
-        if (map[i] == -1) {
-            continue;
-        }
-        // printf("map[i]: %i", map[i]);
-        for(int j = 0; j < max - map[i]; ++j) {
-            printf(" ");
-        }
-        printf("%s\n", array[i]);
-    }
-    free(map);
 }
 
 int main() {
